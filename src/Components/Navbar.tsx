@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/Components/ui/button";
-import { NAV_ITEMS } from "@/static";
+import { NAV_ITEMS } from "@/lib/static";
 import Wrapper from "./Wrapper";
 import { Menu as MenuIcon, ShoppingBagIcon, X } from "lucide-react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
@@ -49,7 +49,7 @@ const Navbar = () => {
 
                             <SignedOut>
                                 <SignInButton>
-                                    <Button>
+                                    <Button className="bg-black">
                                         Log In
                                     </Button>
                                 </SignInButton>

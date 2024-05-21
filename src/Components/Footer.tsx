@@ -62,10 +62,10 @@ const Footer = () => {
 
                 <div className="my-6 flex justify-center items-center">
                     <button
-                        className="text-white p-2 bg-slate-900 rounded-md"
+                        className="text-white p-2 bg-black rounded-md"
                         onClick={scrollToTop}
                     >
-                        <ArrowUp className="w-7 h-7 bg-slate-900" />
+                        <ArrowUp className="w-7 h-7 bg-black" />
                     </button>
                 </div>
             </Wrapper>
