@@ -38,7 +38,7 @@ const Navbar = () => {
                     <div className="flex lg:order-2 rtl:space-x-reverse">
                         <div className="flex items-center justify-center gap-[0.6rem] md:gap-6">
                             <Link href="/cart">
-                                <button className="p-[0.6rem] md:p-3 rounded-full text-black bg-gray-300">
+                                <button className="p-[0.6rem] md:p-[0.7rem] rounded-full text-black bg-gray-300">
                                     <ShoppingBagIcon />
 
                                     <span className="absolute top-6 bg-red-600 text-white w-6 h-6 rounded-full">
