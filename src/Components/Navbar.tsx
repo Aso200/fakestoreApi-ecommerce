@@ -49,7 +49,7 @@ const Navbar = () => {
                         <Link href="/">
                             <Image
                                 className="my-3 cursor-pointer"
-                                src="/Prime.png"
+                                src="/Logo.png"
                                 alt="Logo"
                                 width={120}
                                 height={120}

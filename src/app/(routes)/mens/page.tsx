@@ -8,7 +8,7 @@ const getProductData = async () => {
 
     try {
 
-        const response = await axios.get(`${API}/category/men's clothing`);
+        const response = await axios.get(`${API}/category/men's clothing?sort=desc`);
 
         return response;
 

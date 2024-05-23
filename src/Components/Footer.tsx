@@ -46,7 +46,7 @@ const Footer = () => {
                     <Link href="/">
                         <Image
                             className="my-4 cursor-pointer"
-                            src="/Prime.png"
+                            src="/Logo.png"
                             alt="Logo"
                             width={150}
                             height={150}
