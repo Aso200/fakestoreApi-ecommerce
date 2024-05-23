@@ -9,8 +9,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dine Market E-Commerce App",
-  description: "Full Stack E-Commerce Dine Market App"
+  title: "Prime Market",
+  description: "Prime E-Commerce Market App",
+  icons: {
+    icon: [
+      {
+        url: "/Prime.png",
+        href: "/Prime.png"
+      }
+    ]
+  }
 };
 
 export default function RootLayout({

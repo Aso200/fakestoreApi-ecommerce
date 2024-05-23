@@ -11,8 +11,5 @@ export async function GET(request: NextRequest) {
 
     }
 
-    const data = { message: userId };
-
-    return NextResponse.json({ data });
-
+    return NextResponse.json({ user: userId });
 };

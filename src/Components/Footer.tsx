@@ -46,17 +46,17 @@ const Footer = () => {
                     <Link href="/">
                         <Image
                             className="my-4 cursor-pointer"
-                            src="/Logo.png"
+                            src="/Prime.png"
                             alt="Logo"
-                            width={180}
-                            height={180}
+                            width={150}
+                            height={150}
                         />
                     </Link>
                 </div>
 
                 <div className="flex items-center justify-center my-4">
                     <h1 className="text-[1rem] text-center font-medium">
-                        Copyright © 2024 By Dine Market
+                        Copyright © 2024 By Prime Market
                     </h1>
                 </div>
 

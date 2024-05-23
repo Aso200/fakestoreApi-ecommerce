@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/Components/ui/button";
 import { NAV_ITEMS } from "@/lib/static";
 import Wrapper from "./Wrapper";
 import { Menu as MenuIcon, ShoppingBagIcon, X } from "lucide-react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,24 +14,45 @@ const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const [totalAmt, setTotalAmt] = useState<number>(0);
+
+    const { productData } = useSelector(
+        (state: any) => state.cart
+    );
+
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     const pathname = usePathname();
 
+    useEffect(() => {
+
+        let amt = 0;
+
+        productData.map((item: any) => {
+
+            amt += item.price * item.quantity;
+
+            return;
+        });
+
+        setTotalAmt(amt);
+
+    }, [productData]);
+
     return (
-        <nav className="sticky w-full z-20 px-5 py-4 sm:px-20 top-0 bg-opacity-20 shadow-lg backdrop-blur-lg border-opacity-20">
+        <nav className="sticky w-full z-20 px-5 py-4 sm:px-20 top-0 bg-opacity-10 shadow-lg backdrop-blur-xl border-opacity-20">
             <Wrapper>
                 <div className="flex flex-wrap items-center justify-between wrapper">
                     <div className="flex justify-center items-center">
                         <Link href="/">
                             <Image
-                                className="my-5 cursor-pointer"
-                                src="/Logo.png"
+                                className="my-3 cursor-pointer"
+                                src="/Prime.png"
                                 alt="Logo"
-                                width={150}
-                                height={150}
+                                width={120}
+                                height={120}
                             />
                         </Link>
                     </div>
@@ -42,7 +64,7 @@ const Navbar = () => {
                                     <ShoppingBagIcon />
 
                                     <span className="absolute top-6 bg-red-600 text-white w-6 h-6 rounded-full">
-                                        0
+                                        {productData ? productData?.length : 0}
                                     </span>
                                 </button>
                             </Link>

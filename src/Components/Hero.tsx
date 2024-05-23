@@ -1,6 +1,11 @@
+"use client";
 import Wrapper from "./Wrapper";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+
+    const router = useRouter();
+
     return (
         <div className="px-6 sm:px-20 py-12 sm:py-20">
             <Wrapper>
@@ -16,11 +21,12 @@ const Hero = () => {
                             </h1>
 
                             <p className="text-lg font-medium text-gray-700 max-w-lg md:max-w-2xl">
-                                Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.
+                                Anyone can beat you but no one can beat your outfit as long as you wear Prime outfits.
                             </p>
 
                             <button
                                 className="bg-black hover:bg-black/95 text-white p-4 w-40 rounded-md"
+                                onClick={() => { router.push("/products"); }}
                                 type="button"
                             >
                                 Start Shopping
