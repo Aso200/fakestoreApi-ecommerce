@@ -1,11 +1,15 @@
 "use client";
 import React, { useEffect } from "react";
 import Wrapper from "@/Components/Wrapper";
+import { resetCart } from "@/redux/cartSlice";
 import { ShoppingBagIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
 import confetti from "canvas-confetti";
 
-const OrderSuccess = () => {
+const OrderSuccess = ({ searchParams }: any) => {
+
+    const dispatch = useDispatch();
 
     const router = useRouter();
 
@@ -22,6 +26,8 @@ const OrderSuccess = () => {
         createConfetti();
 
     }, []);
+
+    if (searchParams) return !searchParams?.session_id ? redirect("/") : dispatch(resetCart());
 
     return (
         <div className="flex flex-col justify-center items-center px-5 sm:px-20 py-12 sm:py-20">

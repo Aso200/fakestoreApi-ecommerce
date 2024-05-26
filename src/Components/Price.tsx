@@ -7,7 +7,7 @@ const Price = ({ amount, className }: Props) => {
 
     const priceFormat = new Number(amount).toLocaleString("en-US", {
         style: "currency",
-        currency: "USD",
+        currency: "EUR",
         maximumFractionDigits: 2,
     });
 

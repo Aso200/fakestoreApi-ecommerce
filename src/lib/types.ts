@@ -11,6 +11,7 @@ export interface IProduct {
     category: string;
     image: string;
     rating: IRating;
+    quantity?: number;
 };
 
 export interface ISelectProduct {
@@ -22,4 +23,10 @@ export interface ISelectProduct {
     image: string;
     rating: IRating;
     quantity: number;
+};
+
+export interface IStateProps {
+    cart: {
+        productData: ISelectProduct[];
+    };
 };

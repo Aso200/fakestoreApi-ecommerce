@@ -1,4 +1,4 @@
-import AllProducts from "@/Components/AllProducts";
+import ProductList from "@/Components/ProductList";
 import Wrapper from "@/Components/Wrapper";
 import { IProduct } from "@/lib/types";
 import { API } from "@/lib/service";
@@ -30,7 +30,7 @@ const Products = async () => {
                 <div className="grid justify-center grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
                     {response.data?.map((item: IProduct, i: number) => (
                         <div key={i}>
-                            <AllProducts
+                            <ProductList
                                 item={item}
                             />
                         </div>

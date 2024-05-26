@@ -3,14 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface StoreState {
     productData: ISelectProduct[];
-    userInfo: null | string;
-    orderData: [];
 };
 
 const initialState: StoreState = {
-    productData: [],
-    userInfo: null,
-    orderData: []
+    productData: []
 };
 
 export const cartSlice = createSlice({
@@ -18,10 +14,9 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            const existingProduct = state.productData.find(
-                (item: any) => item.id === action.payload.id
-            );
-
+            const existingProduct = state.productData.find((item: ISelectProduct) => {
+                return item.id === action?.payload.id;
+            });
             if (existingProduct) {
                 existingProduct.quantity += action.payload.quantity;
             } else {
@@ -32,19 +27,14 @@ export const cartSlice = createSlice({
             const existingProduct = state.productData.find(
                 (item: any) => item.id === action.payload.id
             );
-
             existingProduct && existingProduct.quantity++;
         },
         decreaseQuantity: (state, action) => {
             const existingProduct = state.productData.find(
                 (item: any) => item.id === action.payload.id
             );
-
-            if (existingProduct?.quantity === 1) {
-                existingProduct.quantity === 1;
-            } else {
-                existingProduct && existingProduct.quantity--;
-            }
+            if (existingProduct?.quantity === 1) existingProduct.quantity === 1;
+            existingProduct && existingProduct.quantity--;
         },
         deleteProduct: (state, action) => {
             state.productData = state.productData.filter(
@@ -62,7 +52,7 @@ export const {
     increaseQuantity,
     decreaseQuantity,
     deleteProduct,
-    resetCart,
+    resetCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

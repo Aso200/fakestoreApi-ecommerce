@@ -1,6 +1,6 @@
 "use client";
 import React, { FC } from "react";
-import { IProduct } from "@/lib/types";
+import { ISelectProduct } from "@/lib/types";
 import { addToCart } from "@/redux/cartSlice";
 import Wrapper from "./Wrapper";
 import Price from "./Price";
@@ -9,7 +9,11 @@ import { useDispatch } from "react-redux";
 import { IoIosStar } from "react-icons/io";
 import toast from "react-hot-toast";
 
-const ProductPage: FC<IProduct | any> = ({ item }) => {
+interface Props {
+    item: ISelectProduct;
+};
+
+const ProductPage: FC<Props> = ({ item }) => {
 
     const startArray = Array.from({ length: item.rating.rate }, (_, index) => (
         <span key={index} className="text-yellow-400">
@@ -45,7 +49,8 @@ const ProductPage: FC<IProduct | any> = ({ item }) => {
                                 </h3>
 
                                 <div className="flex items-center gap-x-1">
-                                    <h3 className="text-lg font-medium">Rating: </h3> {startArray}
+                                    <h3 className="text-lg font-medium">Rating: </h3>
+                                    {startArray}
                                 </div>
                             </div>
 
@@ -56,7 +61,19 @@ const ProductPage: FC<IProduct | any> = ({ item }) => {
                             <button
                                 className="bg-black hover:bg-black/95 duration-300 text-white text-lg rounded-md p-4"
                                 onClick={() => {
-                                    dispatch(addToCart(item));
+                                    dispatch(addToCart({
+                                        id: item.id,
+                                        title: item.title,
+                                        price: item.price,
+                                        description: item.description,
+                                        category: item.category,
+                                        image: item.image,
+                                        quantity: 1,
+                                        rating: {
+                                            rate: item.rating.rate,
+                                            count: item.rating.count
+                                        }
+                                    }));
                                     toast.success(
                                         `${item?.title.substring(0, 12)}... Added To Cart`
                                     );
