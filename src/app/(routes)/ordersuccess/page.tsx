@@ -25,9 +25,9 @@ const OrderSuccess = ({ searchParams }: any) => {
 
         createConfetti();
 
-    }, []);
+        dispatch(resetCart());
 
-    if (searchParams) return !searchParams?.session_id ? redirect("/") : dispatch(resetCart());
+    }, []);
 
     return (
         <div className="flex flex-col justify-center items-center px-5 sm:px-20 py-12 sm:py-20">

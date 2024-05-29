@@ -1,5 +1,5 @@
 import ProductPage from "@/Components/ProductPage";
-import { IProduct } from "@/lib/types";
+import { ISelectProduct } from "@/lib/types";
 import { API } from "@/lib/service";
 import { redirect } from "next/navigation";
 import axios from "axios";
@@ -30,7 +30,7 @@ const Product = async ({ params }: Prop) => {
 
     const { id } = params;
 
-    const response: IProduct = await getProductData(id);
+    const response: ISelectProduct = await getProductData(id);
 
     if (!response.id) return redirect("/products");
 

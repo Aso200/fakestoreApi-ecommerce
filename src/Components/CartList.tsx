@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { IStateProps } from "@/lib/types";
 import { resetCart } from "@/redux/cartSlice";
+import getStripePromise from "@/lib/stripe";
 import CartItem from "./CartItem";
 import Price from "./Price";
 import Empty from "./Empty";
@@ -34,11 +35,25 @@ const CartList = () => {
 
     const handleReset = () => {
 
-        const confirmed = window.confirm("Are You Sure To Reset Your Cart?");
-
-        confirmed && dispatch(resetCart());
+        dispatch(resetCart());
 
         toast.success("Cart Reset Successfully!");
+
+    };
+
+    const createCheckout = async () => {
+
+        const stripe = await getStripePromise();
+
+        const response = await fetch("/api/checkout", {
+            method: "POST",
+            headers: { "Content-Type": "appication/json" },
+            body: JSON.stringify(productData)
+        });
+
+        const data = await response.json();
+
+        if (data.session) stripe?.redirectToCheckout({ sessionId: data.session.id });
 
     };
 
@@ -69,6 +84,7 @@ const CartList = () => {
                                 <div>
                                     <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-3 text-lg px-4 font-medium">
                                         Subtotal{" "}
+
                                         <span>
                                             <Price amount={totalAmt} />
                                         </span>
@@ -76,6 +92,7 @@ const CartList = () => {
 
                                     <p className="flex items-center justify-between border-[1px] border-gray-400 border-b-0 py-3 text-lg px-4 font-medium">
                                         Shipping Charge
+
                                         <span className="font-semibold tracking-wide font-titleFont">
                                             <Price amount={0} />
                                         </span>
@@ -83,6 +100,7 @@ const CartList = () => {
 
                                     <p className="flex items-center justify-between border-[1px] border-gray-400 py-3 text-lg px-4 font-medium">
                                         Total
+
                                         <span className="font-bold tracking-wide text-lg font-titleFont">
                                             <Price amount={totalAmt} />
                                         </span>
@@ -99,7 +117,7 @@ const CartList = () => {
 
                                     <button
                                         className="h-10 px-8 text-white bg-black duration-300"
-                                    // onClick={createCheckout}
+                                        onClick={createCheckout}
                                     >
                                         Proceed To Checkout
                                     </button>
