@@ -26,7 +26,7 @@ const ProductPage: FC<Props> = ({ item }) => {
     return (
         <div className="px-6 sm:px-16 py-12">
             <Wrapper>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 h-full bg-gray-50 p-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-full bg-gray-50 p-4">
                     <div className="lg:w-4/5 mx-auto flex flex-wrap p-5 rounded-sm bg-white">
                         <Image
                             className="w-full h-full object-contain"
@@ -39,17 +39,17 @@ const ProductPage: FC<Props> = ({ item }) => {
 
                     <div className="w-full md:col-span-2 xl:p-14 flex flex-col gap-6 justify-center">
                         <div className="flex flex-col gap-5">
-                            <h2 className="text-4xl font-semibold">
+                            <h2 className="text-2xl md:text-3xl font-semibold">
                                 {item.title}
                             </h2>
 
-                            <div className="flex justify-start gap-8 items-center">
-                                <h3 className="text-xl font-semibold">
+                            <div className="flex justify-start gap-x-7 md:gap-x-10 items-center">
+                                <h3 className="text-lg md:text-xl font-semibold">
                                     <Price amount={item.price} />
                                 </h3>
 
-                                <div className="flex items-center gap-x-1">
-                                    <h3 className="text-lg font-medium">Rating: </h3>
+                                <div className="flex items-center gap-x-1 md:gap-x-2">
+                                    <h3 className="md:text-lg font-semibold">Product Rating: </h3>
                                     {startArray}
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ const ProductPage: FC<Props> = ({ item }) => {
                             </p>
 
                             <button
-                                className="bg-black hover:bg-black/95 duration-300 text-white text-lg rounded-md p-4"
+                                className="bg-black hover:bg-black/95 duration-300 text-white text-md sm:text-lg rounded-md p-3 sm:p-4"
                                 onClick={() => {
                                     dispatch(addToCart({
                                         id: item.id,

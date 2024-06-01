@@ -65,13 +65,13 @@ const CartItem: FC<Props> = ({ item }) => {
             </div>
 
             <div className="col-span-5 md:col-span-3 flex items-center justify-between py-4 md:py-0 px-4 lg:px-0">
-                <p className="flex w-1/3 items-center text-lg font-semibold">
+                <p className="flex md:w-1/3 items-center text-lg font-semibold">
                     <Price amount={item.price} />
                 </p>
 
-                <div className="flex w-1/3 items-center gap-6 text-lg">
+                <div className="flex md:w-1/3 items-center gap-6 text-lg">
                     <span
-                        className="w-6 h-6 bg-black text-white text-2xl flex items-center justify-center cursor-pointer duration-300 border-[1px] border-gray-300 hover:border-gray-500"
+                        className="w-7 h-7 bg-black text-white text-2xl flex items-center justify-center cursor-pointer duration-300 border-[1px] border-gray-300 hover:border-gray-500"
                         onClick={() => decrease(item.id)}
                     >
                         -
@@ -80,15 +80,15 @@ const CartItem: FC<Props> = ({ item }) => {
                     <p className="font-medium">{item.quantity}</p>
 
                     <span
-                        className="w-6 h-6 bg-black text-white text-2xl flex items-center justify-center cursor-pointer duration-300 border-[1px] border-gray-300 hover:border-gray-500"
+                        className="w-7 h-7 bg-black text-white text-2xl flex items-center justify-center cursor-pointer duration-300 border-[1px] border-gray-300 hover:border-gray-500"
                         onClick={() => increase(item.id)}
                     >
                         +
                     </span>
                 </div>
 
-                <div className="w-1/3 flex items-center font-titleFont font-bold text-lg">
-                    <p>${item.quantity * item.price}</p>
+                <div className="md:w-1/3 flex items-center font-bold text-lg">
+                    <Price amount={item.quantity * item.price} />
                 </div>
             </div>
         </div>

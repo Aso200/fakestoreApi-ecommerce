@@ -41,7 +41,7 @@ const ProductList: FC<Props> = ({ item }) => {
 
                     <div className="bottom-0 flex items-center gap-5 justify-center translate-y-[110%] group-hover:-translate-y-2 transition-transform duration-300">
                         <button
-                            className="bg-gray-800 text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:bg-gray-950 hover:text-white duration-200"
+                            className="bg-black text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:text-white duration-200"
                             onClick={() => {
                                 dispatch(addToCart({
                                     id: item.id,
@@ -68,7 +68,7 @@ const ProductList: FC<Props> = ({ item }) => {
                         </button>
 
                         <Link
-                            className="bg-gray-800 text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:bg-gray-950 hover:text-white duration-200"
+                            className="bg-black text-gray-200 px-4 py-2 text-xs rounded-full flex items-center gap-1 hover:text-white duration-200"
                             href={`product/${item.id}`}
                         >
                             <span className="pr-1">
