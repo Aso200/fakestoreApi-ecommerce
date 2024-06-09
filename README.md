@@ -9,10 +9,10 @@ Follow these steps to set up the project:
 
     ```sh
     # Using SSH
-    git clone git@github.com:username/repository.git
+    git clone 
 
     # Or using HTTPS
-    git clone https://github.com/username/repository.git
+    git clone 
     ```
 
 2. **Install dependencies**
