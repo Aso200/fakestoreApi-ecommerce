@@ -1,7 +1,5 @@
 # Prime E-Commerce Market App! using fakestore API
 
-Sure, here's the information formatted as markup code for GitHub:
-
 ```markdown
 ## Getting Started
 
