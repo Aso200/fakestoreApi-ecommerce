@@ -12,7 +12,7 @@ Follow these steps to set up the project:
     git clone git@github.com:Aso200/fakestoreApi-ecommerce.git
 
     # Or using HTTPS
-    git clone 
+    git clone https://github.com/Aso200/fakestoreApi-ecommerce.git
     ```
 
 2. **Install dependencies**
