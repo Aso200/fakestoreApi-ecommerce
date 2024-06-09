@@ -9,7 +9,7 @@ Follow these steps to set up the project:
 
     ```sh
     # Using SSH
-    git clone 
+    git clone git@github.com:Aso200/fakestoreApi-ecommerce.git
 
     # Or using HTTPS
     git clone 
